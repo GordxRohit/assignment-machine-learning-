@@ -1,0 +1,166 @@
+# ============================================================
+# Assignment 1 - Python (Lists, Dictionary, NumPy, Pandas)
+# Complete Single File Solution
+# ============================================================
+
+import numpy as np
+import pandas as pd
+
+# For reproducible results
+np.random.seed(42)
+
+print("=" * 60)
+print("ASSIGNMENT 1 - COMPLETE SOLUTION")
+print("=" * 60)
+
+# --------------------------------------------------
+# 1. Create a list ‘number’ containing the numbers 10, 20, 30, 40, and 50 and display the list
+# --------------------------------------------------
+print("\n----- Question 1 -----")
+number = [10, 20, 30, 40, 50]
+print("List:", number)
+
+# --------------------------------------------------
+# 2. Insert 60 at the end of the list and 25 at index 2. Display the list
+# --------------------------------------------------
+print("\n----- Question 2 -----")
+number.append(60)          # insert 60 at the end
+number.insert(2, 25)       # insert 25 at index 2
+print("List after insertion:", number)
+
+# --------------------------------------------------
+# 3. Remove the value 30 from the list and display the final list
+# --------------------------------------------------
+print("\n----- Question 3 -----")
+number.remove(30)
+print("List after removing 30:", number)
+
+# --------------------------------------------------
+# 4. Find the largest and the smallest number from the list
+# --------------------------------------------------
+print("\n----- Question 4 -----")
+print("Largest number :", max(number))
+print("Smallest number:", min(number))
+
+# --------------------------------------------------
+# 5. Reverse the list and find the sum of the reversed list
+# --------------------------------------------------
+print("\n----- Question 5 -----")
+number.reverse()
+print("Reversed list:", number)
+print("Sum of reversed list:", sum(number))
+
+# --------------------------------------------------
+# 6. Create a list of squares from 10 to 20 using list comprehension
+# --------------------------------------------------
+print("\n----- Question 6 -----")
+squares = [i ** 2 for i in range(10, 21)]
+print("List of squares from 10 to 20:", squares)
+
+# --------------------------------------------------
+# 7. Create a dictionary storing a student’s name, age, and marks.
+#    Print only the marks, add new key City, update marks to 90, remove key Age
+# --------------------------------------------------
+print("\n----- Question 7 -----")
+student = {
+    "name": "Rohit",
+    "age": 21,
+    "marks": 78
+}
+
+print("Marks of the student:", student["marks"])
+
+student["City"] = "Ranchi"      # add new key
+student["marks"] = 90           # update marks
+del student["age"]              # remove key Age
+
+print("Updated dictionary:", student)
+
+# --------------------------------------------------
+# 8. Print all keys and values and count the number of keys
+# --------------------------------------------------
+print("\n----- Question 8 -----")
+print("Keys   :", list(student.keys()))
+print("Values :", list(student.values()))
+print("Number of keys:", len(student))
+
+# --------------------------------------------------
+# 9. Create an array using numpy with 5 random integer numbers between 20 to 50
+# --------------------------------------------------
+print("\n----- Question 9 -----")
+arr = np.random.randint(20, 51, size=5)
+print("Random array:", arr)
+
+# --------------------------------------------------
+# 10. Create a 3x3 matrix of 0s and an identity matrix of order 4
+# --------------------------------------------------
+print("\n----- Question 10 -----")
+zeros_matrix = np.zeros((3, 3))
+identity_matrix = np.eye(4)
+
+print("3x3 Matrix of zeros:\n", zeros_matrix)
+print("\nIdentity matrix of order 4:\n", identity_matrix)
+
+# --------------------------------------------------
+# 11. Generate 20 equally spaced numbers between 0 and 1. Display the maximum element
+# --------------------------------------------------
+print("\n----- Question 11 -----")
+linspace_arr = np.linspace(0, 1, 20)
+print("20 equally spaced numbers:\n", linspace_arr)
+print("Maximum element:", linspace_arr.max())
+
+# --------------------------------------------------
+# 12. Find the mean of the elements of the above-mentioned array
+# --------------------------------------------------
+print("\n----- Question 12 -----")
+print("Mean of the array:", linspace_arr.mean())
+
+# --------------------------------------------------
+# 13. Reshape the 1-D array containing 20 elements into a 5x4 matrix
+# --------------------------------------------------
+print("\n----- Question 13 -----")
+reshaped = linspace_arr.reshape(5, 4)
+print("Reshaped 5x4 matrix:\n", reshaped)
+
+# --------------------------------------------------
+# 14. Create a Data Frame with Name and Marks as two columns
+# --------------------------------------------------
+print("\n----- Question 14 -----")
+data = {
+    "Name": ["Amit", "Priya", "Rahul", "Sneha"],
+    "Marks": [42, 58, 29, 75]
+}
+df = pd.DataFrame(data)
+print("DataFrame:\n", df)
+
+# --------------------------------------------------
+# 15. Display the first two rows and only the marks column separately
+# --------------------------------------------------
+print("\n----- Question 15 -----")
+print("First two rows:\n", df.head(2))
+print("\nOnly Marks column:\n", df["Marks"])
+
+# --------------------------------------------------
+# 16. Add a new column ‘Grade’ (A+, A, B, C) in the data frame
+# --------------------------------------------------
+print("\n----- Question 16 -----")
+df["Grade"] = ["B", "A", "C", "A+"]
+print("DataFrame after adding Grade:\n", df)
+
+# --------------------------------------------------
+# 17. Find the average marks of the students and the students scoring more than 35
+# --------------------------------------------------
+print("\n----- Question 17 -----")
+print("Average Marks:", df["Marks"].mean())
+print("\nStudents scoring more than 35:\n", df[df["Marks"] > 35])
+
+# --------------------------------------------------
+# 18. Save the data frame into .csv file
+# --------------------------------------------------
+print("\n----- Question 18 -----")
+df.to_csv("students.csv", index=False)
+print("DataFrame successfully saved as 'students.csv'")
+
+print("\n" + "=" * 60)
+print("All 18 questions completed successfully!")
+print("=" * 60)
