@@ -1,0 +1,46 @@
+# ============================================================
+# PRACTICE QUESTION 1 - sales.csv only
+# ============================================================
+
+import pandas as pd
+
+# (a) Read the CSV file
+sales = pd.read_csv("sales.csv")
+print("(a) CSV loaded")
+print("Columns:", list(sales.columns))
+print(sales)
+
+
+# (b) First five records
+print("\n(b) First 5 records:")
+print(sales.head())
+
+
+# (c) Missing values
+print("\n(c) Missing values:")
+print(sales.isnull().sum())
+
+
+# (d) New column Sales = Quantity * Price
+sales["Sales"] = sales["Quantity"] * sales["Price"]
+print("\n(d) After adding Sales column:")
+print(sales)
+
+
+# (e) Total sales
+print("\n(e) Total Sales:", sales["Sales"].sum())
+
+
+# (f) Product with highest sales
+print("\n(f) Product with highest sales:")
+print(sales.loc[sales["Sales"].idxmax()][["Products", "Sales"]])
+
+
+# (g) Total sales for each category
+print("\n(g) Total sales by Category:")
+print(sales.groupby("Category")["Sales"].sum())
+
+
+# (h) Sort by sales descending
+print("\n(h) Sorted by Sales (descending):")
+print(sales.sort_values(by="Sales", ascending=False))
